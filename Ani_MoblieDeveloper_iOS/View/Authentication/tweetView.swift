@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct tweetView: Any {
+struct tweetView: View {
     @EnvironmentObject var viewModel :AuthViewModel
     
-    var body: some Any {
+    var body: some View {
         Group{
             if viewModel.userSession != nil{
                 NavigationView{
@@ -33,13 +33,13 @@ struct tweetView: Any {
                 }),trailing: LogoView()
                                         .padding(120.0))
                  
-                        CommentTweetView()
+                      CommentTweetView()
                     
                 }
             }
             else{
                 LoginView()
-                
+
             }
         }
    

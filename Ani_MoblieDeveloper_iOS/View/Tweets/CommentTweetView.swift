@@ -10,7 +10,7 @@ import SwiftUI
 struct CommentTweetView: View {
     
     @State var reply = ""
-    @ObservedObject var viewModel : uploadTweetmodels
+    @EnvironmentObject var viewModel : uploadTweetmodels
     var body: some View {
         
         HStack{
