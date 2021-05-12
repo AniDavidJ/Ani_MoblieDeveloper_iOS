@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-struct tweetView: View {
-    @EnvironmentObject var viewModel : AuthViewModel
+struct tweetView: Any {
+    @EnvironmentObject var viewModel :AuthViewModel
     
-    
-    var body: some View {
+    var body: some Any {
         Group{
-            if viewModel.userSession != nil
-            {
+            if viewModel.userSession != nil{
                 NavigationView{
                 ZStack(alignment: .bottomTrailing, content: {
                     ScrollView{
@@ -30,27 +28,26 @@ struct tweetView: View {
                     Image(systemName: "arrow.left").foregroundColor(.black)
                         .scaleEffect(0.83)
                         .font(Font.title.weight(.semibold))
-                     
-                        
-                        
+
+
                 }),trailing: LogoView()
                                         .padding(120.0))
+                 
+                        CommentTweetView()
+                    
                 }
-                CommentTweetView()
+            }
+            else{
+                LoginView()
                 
             }
-            else{ LoginView() }
         }
-        
-        
-      
-
-    
+   
     }
 }
-
-struct tweetView_Previews: PreviewProvider {
-    static var previews: some View {
-        tweetView()
-    }
-}
+//
+//struct tweetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        tweetView()
+//    }
+//}

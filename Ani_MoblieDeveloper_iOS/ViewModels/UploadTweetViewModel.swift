@@ -10,7 +10,6 @@ import Firebase
 
 class uploadTweetmodels: ObservableObject{
     @Published var user : User
-    
     @Published var userTweets = [Tweet]()
 
     init(user: User){

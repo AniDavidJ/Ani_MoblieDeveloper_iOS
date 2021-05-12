@@ -20,7 +20,6 @@ class AuthViewModel: ObservableObject{
     init(){
         userSession = Auth.auth().currentUser
         fetchUser()
-       // fetchUserTweets()
     }
     func login(withEmail email:String,password:String){
         Auth.auth().signIn(withEmail: email, password: password) { result, error in

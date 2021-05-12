@@ -18,6 +18,7 @@ struct Ani_MoblieDeveloper_iOSApp: App {
     var body: some Scene {
         WindowGroup {
             tweetView().environmentObject(AuthViewModel.shared)
+
         }
     }
 }
