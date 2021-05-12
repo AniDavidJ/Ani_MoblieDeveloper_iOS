@@ -8,23 +8,24 @@
 import SwiftUI
 
 struct CommentTweetView: View {
-    
     @State var reply = ""
-    @EnvironmentObject var viewModel : uploadTweetmodels
+  //  @EnvironmentObject var viewModel : uploadTweetmodels
+   // @ObservedObject var viewModel = uploadTweetmodels()
+
     var body: some View {
         
         HStack{
-            if let user = AuthViewModel.shared.user{
+          //  if let user = AuthViewModel.shared.user{
                 Image("Avatar")
                     .resizable()
                     .scaledToFill()
                     .clipped()
                     .frame(width: 30, height: 30)
                     .cornerRadius(30/2)
-            }
+         //   }
             
            
-            TweetTextField(text: $reply, placeholder: Text("Tweet your reply"), viewModel: viewModel)
+            TweetTextField(text: $reply, placeholder: Text("Tweet your reply"))
                 .padding()
                 .background(Color(.init(white: 1, alpha: 0.5)))
                 .overlay(
@@ -36,8 +37,8 @@ struct CommentTweetView: View {
     }
 }
 
-//struct TweetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CommentTweetView()
-//    }
-//}
+struct TweetView_Previews: PreviewProvider {
+    static var previews: some View {
+        CommentTweetView()
+    }
+}

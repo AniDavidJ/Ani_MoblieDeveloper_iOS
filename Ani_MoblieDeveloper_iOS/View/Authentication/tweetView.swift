@@ -33,9 +33,9 @@ struct tweetView: View {
                 }),trailing: LogoView()
                                         .padding(120.0))
                  
-                      CommentTweetView()
-                    
                 }
+                CommentTweetView()
+
             }
             else{
                 LoginView()

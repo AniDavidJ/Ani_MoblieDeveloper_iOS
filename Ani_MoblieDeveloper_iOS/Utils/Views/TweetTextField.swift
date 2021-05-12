@@ -11,7 +11,7 @@ struct TweetTextField: View {
     //@Binding var isPresented : Bool
     @Binding var text : String
     let placeholder : Text
-    @ObservedObject var viewModel : uploadTweetmodels
+   // @ObservedObject var viewModel : uploadTweetmodels
     
     
     var body: some View {
@@ -22,14 +22,12 @@ struct TweetTextField: View {
                 placeholder.foregroundColor(Color(.init(white: 0.5, alpha: 0.87)))
                     .padding(.leading,20)
             }
-
+          //  TextField("", text: $text)
             TextField("", text: $text, onEditingChanged: { (changed) in
                       }) {
-                viewModel.uploadTweet(caption: text)
-                text = ""
+              // viewModel.uploadTweet(caption: text)
+//                text = ""
                       }
-                     
-               
                   }.overlay(
                     RoundedRectangle(cornerRadius: 30)
                         .stroke(Color.white, lineWidth: 0.5))
