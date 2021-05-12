@@ -1,1 +1,0 @@
-# AniDavid-MoblieDeveloper-iOS
