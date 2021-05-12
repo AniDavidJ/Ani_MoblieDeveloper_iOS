@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct Ani_MoblieDeveloper_iOSApp: App {
+    init()
+    {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            tweetView().environmentObject(AuthViewModel.shared)
         }
     }
 }
