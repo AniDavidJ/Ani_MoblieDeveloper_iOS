@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "96835373-951B-4FAF-B0CD-28DBB136E65B"
+            uuid = "39C4C6F9-066D-4B94-A5EC-8211CF183202"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Ani_MoblieDeveloper_iOS/View/Authentication/tweetView.swift"
+            filePath = "Ani_MoblieDeveloper_iOS/View/Tweets/CommentTweetView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

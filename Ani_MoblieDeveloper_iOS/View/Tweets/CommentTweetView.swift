@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CommentTweetView: View {
     @State var reply = ""
-  //  @EnvironmentObject var viewModel : uploadTweetmodels
-   // @ObservedObject var viewModel = uploadTweetmodels()
+    @EnvironmentObject var viewModel : uploadTweetmodels
+  //  @ObservedObject var viewModel = uploadTweetmodels
 
     var body: some View {
         
@@ -25,7 +25,9 @@ struct CommentTweetView: View {
          //   }
             
            
-            TweetTextField(text: $reply, placeholder: Text("Tweet your reply"))
+            TweetTextField(text: $reply,onCommit:{
+                          //  viewModel.uploadTweet(caption: reply)
+                            print("got it")})
                 .padding()
                 .background(Color(.init(white: 1, alpha: 0.5)))
                 .overlay(
@@ -37,8 +39,8 @@ struct CommentTweetView: View {
     }
 }
 
-struct TweetView_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentTweetView()
-    }
-}
+//struct TweetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CommentTweetView()
+//    }
+//}
