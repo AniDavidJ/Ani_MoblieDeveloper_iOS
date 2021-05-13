@@ -23,23 +23,23 @@ struct TweetCell: View {
                     .frame(width: 50, height: 50)
                     .cornerRadius(50/2)
                 }
-                VStack(alignment: .leading,spacing:4){
+                VStack(alignment: .leading,spacing:0){
                     HStack {
                         Text(tweet.username)
                             .font(.system(size: 16,weight : .semibold))
                           
-                        Text("@\(tweet.username)")
+                        Text("@\(tweet.email)")
                             .foregroundColor(.gray)
                             .font(.system(size: 14,weight : .regular))
                         Text("2d")
                             .foregroundColor(.gray)
                             .font(.system(size: 14,weight : .regular))
-                    }
+                    }.padding()
                     Text(tweet.caption)
                         .font(.system(size: 15,weight : .regular))
                 }
              }
-        //   .background(Color(.init(white: 0.5, alpha: 0.5)))
+         // .background(Color(.init(white: 0.5, alpha: 0.5)))
         }
     }
 }

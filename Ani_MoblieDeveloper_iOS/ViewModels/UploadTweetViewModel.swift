@@ -22,11 +22,11 @@ class UploadTweetViewModel: ObservableObject{
     {
         guard let user = AuthViewModel.shared.user else {return}
         let docRef = COLLECTION_TWEETS.document()
-        let data:[String:Any] = ["uid": user.id , "caption":caption , "name" : user.username, "timestamp": Date(), "id" : docRef.documentID]
+        let data:[String:Any] = ["uid": user.id , "caption":caption , "name" : user.username, "timestamp": Timestamp(date: Date()), "id" : docRef.documentID,"email": user.email]
         print(user)
         print(docRef)
         docRef.setData(data) { _ in
-            print("DEBUG: Succesfully uploaded tweet...")
+          //  print("DEBUG: Succesfully uploaded tweet...")
             self.isPresented = false
         }
     }

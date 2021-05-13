@@ -12,6 +12,7 @@ struct Tweet: Identifiable {
     let username: String
     let caption :String
     let uid :String
+    let email :String
     let timestamp : Timestamp
     
     init(dictionary:[String:Any]) {
@@ -19,6 +20,8 @@ struct Tweet: Identifiable {
         self.username = dictionary["name"] as? String ?? ""
         self.caption = dictionary["caption"] as? String ?? ""
         self.id = dictionary["id"] as? String ?? ""
+        self.email = dictionary["email"] as? String ?? ""
+
       self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
     }
 }

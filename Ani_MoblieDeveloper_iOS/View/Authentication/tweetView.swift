@@ -15,15 +15,16 @@ struct tweetView: View {
         Group{
            // if authviewModel.userSession != nil {
                 NavigationView{
-                ZStack(alignment: .topLeading, content: {
+                ZStack(alignment: .leading, content: {
                     ScrollView{
                         VStack(alignment: .leading){
                             ForEach(feedviewmodel.tweets){ tweet in
                                 TweetCell(tweet: tweet)
-                            }
+                            }.padding(.top,-20)
                         }
                     }
-                })
+                }) .padding(-40.0)
+                .padding(.trailing,200.0)
                 .navigationBarItems(leading: Button(action: {
                     authviewModel.SignOut()
                     
@@ -37,7 +38,7 @@ struct tweetView: View {
                                         .padding(120.0))
                  
                 }
-                CommentTweetView()
+            CommentTweetView()
 
             }
 //            else{
