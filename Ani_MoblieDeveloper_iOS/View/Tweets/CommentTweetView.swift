@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CommentTweetView: View {
     @State var reply = ""
-    @EnvironmentObject var viewModel : uploadTweetmodels
-  //  @ObservedObject var viewModel = uploadTweetmodels
+ //   @EnvironmentObject var viewModel : uploadTweetmodels
+    @ObservedObject var viewModel = UploadTweetViewModel()
 
     var body: some View {
         
@@ -26,7 +26,7 @@ struct CommentTweetView: View {
             
            
             TweetTextField(text: $reply,onCommit:{
-                          //  viewModel.uploadTweet(caption: reply)
+                           viewModel.uploadTweet(caption: reply)
                             print("got it")})
                 .padding()
                 .background(Color(.init(white: 1, alpha: 0.5)))
