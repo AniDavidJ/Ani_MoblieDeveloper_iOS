@@ -8,23 +8,26 @@
 import SwiftUI
 
 struct tweetView: View {
-    @EnvironmentObject var viewModel :AuthViewModel
+    @EnvironmentObject var authviewModel :AuthViewModel
+    @ObservedObject var feedviewmodel : FeedViewModel
     
     var body: some View {
         Group{
-            if viewModel.userSession != nil{
+           // if authviewModel.userSession != nil {
                 NavigationView{
-                ZStack(alignment: .bottomTrailing, content: {
+                ZStack(alignment: .topLeading, content: {
                     ScrollView{
-                        VStack{
-                            ForEach(0..<25){ _ in
-                                TweetCell()
-                              
+                        VStack(alignment: .leading){
+                            ForEach(feedviewmodel.tweets){ tweet in
+                                TweetCell(tweet: tweet)
                             }
                         }
                     }
                 })
-                .navigationBarItems(leading: Button(action: { viewModel.SignOut()}, label: {
+                .navigationBarItems(leading: Button(action: {
+                    authviewModel.SignOut()
+                    
+                }, label: {
                     Image(systemName: "arrow.left").foregroundColor(.black)
                         .scaleEffect(0.83)
                         .font(Font.title.weight(.semibold))
@@ -37,15 +40,15 @@ struct tweetView: View {
                 CommentTweetView()
 
             }
-            else{
-                LoginView()
-
-            }
-        }
+//            else{
+//                LoginView()
+//
+//            }
+        //}
    
     }
 }
-//
+
 //struct tweetView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        tweetView()

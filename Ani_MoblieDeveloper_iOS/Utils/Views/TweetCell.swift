@@ -8,43 +8,38 @@
 import SwiftUI
 
 struct TweetCell: View {
+    let tweet : Tweet
     var body: some View {
-        VStack{
-            HStack(alignment: .top){
-                ZStack{
+        VStack(alignment :.leading){
+            HStack(alignment: .top,spacing :12){
+                ZStack(){
                     VerticalLine()
                         .stroke(Color.gray, lineWidth: 2)
-                       .frame(width: 20, height: 90)
+                       .frame(width: 20, height: 100)
                 Image("Avatar")
                     .resizable()
                     .scaledToFill()
                     .clipped()
                     .frame(width: 50, height: 50)
                     .cornerRadius(50/2)
- 
                 }
-                VStack(alignment: .leading,spacing:7){
+                VStack(alignment: .leading,spacing:4){
                     HStack {
-                        Text("Jackson")
+                        Text(tweet.username)
                             .font(.system(size: 16,weight : .semibold))
                           
-                        Text("@amumathew")
+                        Text("@\(tweet.username)")
                             .foregroundColor(.gray)
                             .font(.system(size: 14,weight : .regular))
                         Text("2d")
                             .foregroundColor(.gray)
                             .font(.system(size: 14,weight : .regular))
-                        
                     }
-                    
-                    Text("Prototype and test end-to-end with the Local Emulator Suite, now with Firebase Authentication")
-                        .font(.system(size: 14,weight : .regular))
-                        
+                    Text(tweet.caption)
+                        .font(.system(size: 15,weight : .regular))
                 }
-                
              }
-           .padding(.trailing)
-   
+        //   .background(Color(.init(white: 0.5, alpha: 0.5)))
         }
     }
 }
@@ -56,8 +51,8 @@ struct VerticalLine: Shape {
         return path
     }
 }
-struct TweetCell_Previews: PreviewProvider {
-    static var previews: some View {
-        TweetCell()
-    }
-}
+//struct TweetCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TweetCell()
+//    }
+//}

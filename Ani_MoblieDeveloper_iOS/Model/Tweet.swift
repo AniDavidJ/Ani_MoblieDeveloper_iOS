@@ -16,7 +16,7 @@ struct Tweet: Identifiable {
     
     init(dictionary:[String:Any]) {
         self.uid = dictionary["uid"] as? String ?? ""
-        self.username = dictionary["username"] as? String ?? ""
+        self.username = dictionary["name"] as? String ?? ""
         self.caption = dictionary["caption"] as? String ?? ""
         self.id = dictionary["id"] as? String ?? ""
       self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
