@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 
 class AuthViewModel: ObservableObject{
+    @Published var userTweets = [Tweet]()
     
     @Published var userSession: FirebaseAuth.User?
     @Published var isAuthenticating = false
@@ -23,14 +24,13 @@ class AuthViewModel: ObservableObject{
     }
     func login(withEmail email:String,password:String){
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
-         
+            
             if let error = error {
                 print("DEBUG:Error \(error.localizedDescription)")
                 return
             }
             self.userSession = result?.user
             self.fetchUser()
-            
         }
     }
     
@@ -64,5 +64,5 @@ class AuthViewModel: ObservableObject{
             self.user = User(dictionary: data)
         }
     }
-
+    
 }

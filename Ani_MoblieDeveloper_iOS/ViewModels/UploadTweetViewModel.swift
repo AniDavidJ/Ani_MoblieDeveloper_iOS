@@ -9,39 +9,28 @@ import SwiftUI
 import Firebase
 
 class UploadTweetViewModel: ObservableObject{
-//    @Published var user : User
-    @Published var userTweets = [Tweet]()
-
-//    init(isPresented : Binding<Bool>){
-////        self.user = user
-////    //    fetchUserTweets()
-//        self._isPresented = isPresented
-//   }
- //   @Binding var isPresented :Bool
+    @Published var tweets = [Tweet]()
+    
+    init() {
+        fetchUserTweets()
+    }
+    static let fetchUsershared = UploadTweetViewModel()
     func uploadTweet(caption: String)
     {
         guard let user = AuthViewModel.shared.user else {return}
         let docRef = COLLECTION_TWEETS.document()
         let data:[String:Any] = ["uid": user.id , "caption":caption , "name" : user.username, "timestamp": Timestamp(date: Date()), "id" : docRef.documentID,"email": user.email]
         docRef.setData(data) { _ in
-           print("DEBUG: Succesfully uploaded tweet...")
-         //   self.isPresented = false
+            
+            self.fetchUserTweets()
         }
     }
     func fetchUserTweets(){
-        guard let user = AuthViewModel.shared.user else {return}
-        COLLECTION_TWEETS.whereField("uid", isEqualTo: user.id).getDocuments { snapshot , _ in
-            guard let document = snapshot?.documents else {return}
-
-            self.userTweets = document.map({ Tweet( dictionary: $0.data())})
+        COLLECTION_TWEETS.getDocuments{ snapshot, _ in
+            guard let documents = snapshot?.documents else {return}
+            self.tweets = documents.map({Tweet(dictionary: $0.data())})
+            
         }
-
     }
-//    func tweets(forFilter filter : TweetFilterOptions)->[Tweet]{
-//        switch filter {
-//        case .tweets : return userTweets
-//
-//
-//        }
-//    }
+    
 }

@@ -59,7 +59,7 @@ struct RegistrationView: View {
                 .padding(.horizontal,20)
                 Button(action: {
                     if self.isPasswordValid() {
-                    viewModel.registerUser(username: name, email: email, password: password, confirmpassword: confirmPassword)
+                        viewModel.registerUser(username: name, email: email, password: password, confirmpassword: confirmPassword)
                     }
                     
                 }, label: {
@@ -85,22 +85,22 @@ struct RegistrationView: View {
                     .padding(.bottom,150)
                     .padding(.top,20)
                     .foregroundColor(.black)
-                   
+                    
                 })
             }
         }
         .ignoresSafeArea()
     }
-
-private func isPasswordValid() -> Bool {
-  
     
-    if !password.isEmpty && password == confirmPassword && confirmPassword.count > 6{
-        return true
+    private func isPasswordValid() -> Bool {
+        
+        
+        if !password.isEmpty && password == confirmPassword && confirmPassword.count > 6{
+            return true
+        }
+        
+        return false
     }
-    
-    return false
-}
 }
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {

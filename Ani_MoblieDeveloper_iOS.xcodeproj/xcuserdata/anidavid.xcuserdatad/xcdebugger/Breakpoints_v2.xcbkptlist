@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "36D45704-3507-47FE-907D-3159580125B5"
+            uuid = "8514D660-8981-4449-B13A-935F1357C278"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ani_MoblieDeveloper_iOS/ViewModels/UploadTweetViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "uploadTweet(caption:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "fetchUserTweets()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

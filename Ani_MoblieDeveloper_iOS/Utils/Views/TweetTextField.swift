@@ -17,20 +17,19 @@ struct TweetTextField: View {
         
         ZStack(alignment:.leading) {
             if text.isEmpty{
-              //  placeholder.foregroundColor(Color(.init(white: 0.5, alpha: 0.87)))
-                  //  .padding(.leading,20)
+                
             }
-
-                TextField("Tweet your reply", text: $text, onCommit: didPressReturn)
+            
+            TextField("Tweet your reply", text: $text, onCommit: didPressReturn)
         }
     }
-        func didPressReturn() {
-            print("did press return")
-
-           self.onCommit()
-            text = "" // << external callback
-        }
+    func didPressReturn() {
+        print("did press return")
+        
+        self.onCommit()
+        text = "" 
     }
-    
+}
+
 
 

@@ -12,7 +12,7 @@ struct LoginView: View {
     @State var email = ""
     @State var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
-
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -61,21 +61,21 @@ struct LoginView: View {
                     })
                     
                     Spacer()
-                   NavigationLink(
-                    destination: RegistrationView().navigationBarBackButtonHidden(true),
-                    label: {
-                        HStack{
-                            Text("Don’t have a Teamio account yet?")
-                                .font(Font.custom("Hellix-Regular", size: 14))
-                            Text("Sign up")
-                                .font(.system(size: 14,weight:.semibold))
+                    NavigationLink(
+                        destination: RegistrationView().navigationBarBackButtonHidden(true),
+                        label: {
+                            HStack{
+                                Text("Don’t have a Teamio account yet?")
+                                    .font(Font.custom("Hellix-Regular", size: 14))
+                                Text("Sign up")
+                                    .font(.system(size: 14,weight:.semibold))
+                                
+                            }
+                            .foregroundColor(.black)
+                            .padding(.bottom,150)
+                            .padding(.top,20)
                             
-                        }
-                        .foregroundColor(.black)
-                        .padding(.bottom,150)
-                        .padding(.top,20)
-                        
-                    })
+                        })
                 }
             }
         }

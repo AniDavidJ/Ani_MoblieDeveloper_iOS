@@ -9,24 +9,24 @@ import SwiftUI
 
 struct CommentTweetView: View {
     @State var reply = ""
-
-  // @EnvironmentObject var viewModel : UploadTweetViewModel
-   @ObservedObject var viewModel : UploadTweetViewModel
+    
+    // @EnvironmentObject var viewModel : UploadTweetViewModel
+    @ObservedObject var viewModel : UploadTweetViewModel
     var body: some View {
         
         HStack{
-          //  if let user = AuthViewModel.shared.user{
-                Image("Avatar")
-                    .resizable()
-                    .scaledToFill()
-                    .clipped()
-                    .frame(width: 30, height: 30)
-                    .cornerRadius(30/2)
-         //   }
+            //  if let user = AuthViewModel.shared.user{
+            Image("Avatar")
+                .resizable()
+                .scaledToFill()
+                .clipped()
+                .frame(width: 30, height: 30)
+                .cornerRadius(30/2)
+            //   }
             
-           
+            
             TweetTextField(text: $reply,onCommit:{
-                         viewModel.uploadTweet(caption: reply)
+                            viewModel.uploadTweet(caption: reply)
                             print("got it")})
                 .padding()
                 .background(Color(.init(white: 1, alpha: 0.5)))
@@ -39,8 +39,4 @@ struct CommentTweetView: View {
     }
 }
 
-//struct TweetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CommentTweetView()
-//    }
-//}
+
