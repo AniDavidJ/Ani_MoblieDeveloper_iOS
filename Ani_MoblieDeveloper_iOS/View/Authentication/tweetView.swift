@@ -23,7 +23,7 @@ struct tweetView: View {
                             }.padding(.top,-20)
                         }
                     }
-                }) .padding(-40.0)
+                })// .padding(-40.0)
                 //.padding(.trailing,200.0)
                 .navigationBarItems(leading: Button(action: {
                     authviewModel.SignOut()

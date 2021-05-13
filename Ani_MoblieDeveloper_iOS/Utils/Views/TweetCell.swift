@@ -31,7 +31,7 @@ struct TweetCell: View {
                         Text("@\(tweet.username)")
                             .foregroundColor(.gray)
                             .font(.system(size: 14,weight : .regular))
-                        Text("2d")
+                        Text(tweet.timestampString)
                             .foregroundColor(.gray)
                             .font(.system(size: 14,weight : .regular))
                     }.padding()
