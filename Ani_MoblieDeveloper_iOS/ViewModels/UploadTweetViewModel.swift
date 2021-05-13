@@ -12,22 +12,22 @@ class UploadTweetViewModel: ObservableObject{
 //    @Published var user : User
 //    @Published var userTweets = [Tweet]()
 
-    init(isPresented : Binding<Bool>){
-//        self.user = user
-//    //    fetchUserTweets()
-        self._isPresented = isPresented
-   }
-    @Binding var isPresented :Bool
+//    init(isPresented : Binding<Bool>){
+////        self.user = user
+////    //    fetchUserTweets()
+//        self._isPresented = isPresented
+//   }
+ //   @Binding var isPresented :Bool
     func uploadTweet(caption: String)
-    {
+    {print(AuthViewModel.shared.user)
         guard let user = AuthViewModel.shared.user else {return}
         let docRef = COLLECTION_TWEETS.document()
         let data:[String:Any] = ["uid": user.id , "caption":caption , "name" : user.username, "timestamp": Timestamp(date: Date()), "id" : docRef.documentID,"email": user.email]
         print(user)
         print(docRef)
         docRef.setData(data) { _ in
-          //  print("DEBUG: Succesfully uploaded tweet...")
-            self.isPresented = false
+           print("DEBUG: Succesfully uploaded tweet...")
+         //   self.isPresented = false
         }
     }
 //    func fetchUserTweets(){

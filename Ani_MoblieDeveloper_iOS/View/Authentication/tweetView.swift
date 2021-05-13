@@ -13,7 +13,7 @@ struct tweetView: View {
     
     var body: some View {
         Group{
-           // if authviewModel.userSession != nil {
+           if authviewModel.userSession != nil {
                 NavigationView{
                 ZStack(alignment: .leading, content: {
                     ScrollView{
@@ -24,7 +24,7 @@ struct tweetView: View {
                         }
                     }
                 }) .padding(-40.0)
-                .padding(.trailing,200.0)
+                //.padding(.trailing,200.0)
                 .navigationBarItems(leading: Button(action: {
                     authviewModel.SignOut()
                     
@@ -38,14 +38,14 @@ struct tweetView: View {
                                         .padding(120.0))
                  
                 }
-            CommentTweetView()
+            CommentTweetView(viewModel: UploadTweetViewModel())
 
             }
-//            else{
-//                LoginView()
-//
-//            }
-        //}
+            else{
+                LoginView()
+
+            }
+        }
    
     }
 }
